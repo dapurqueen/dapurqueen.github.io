@@ -1,0 +1,486 @@
+@import url(https://fonts.googleapis.com/css?family=Gochi+Hand);
+
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+html {
+  height:100%;
+  min-height:100%;
+}
+
+body {
+   min-height:100%;
+}
+
+body {
+	/*background: #333;*/
+	color: #fff;
+	font-weight: 400;
+	font-size: 1em;
+	font-family: 'Gochi Hand', cursive;
+	background: url('../img/dapur-queen-bekasi.jpg') no-repeat center center;
+	background-size: cover;
+	background-attachment: fixed;
+	;
+}
+
+a {
+	color: #f0f0f0;
+	text-decoration: none;
+	outline: none;
+}
+
+.demo-1 a { color: #fff; }
+
+a:hover, a:focus {
+	color: #fff;
+}
+
+section {
+	padding: 1em;
+	text-align: center;
+}
+
+
+@font-face {
+  font-family: 'dapurqueen';
+  src:  url('../fonts/dapurqueen.eot?engkcg');
+  src:  url('../fonts/dapurqueen.eot?engkcg#iefix') format('embedded-opentype'),
+    url('../fonts/dapurqueen.ttf?engkcg') format('truetype'),
+    url('../fonts/dapurqueen.woff?engkcg') format('woff'),
+    url('../fonts/dapurqueen.svg?engkcg#dapurqueen') format('svg');
+}
+
+.ip-header {
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	min-height: 480px;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+}
+
+.ip-header h1 {
+	margin: 0;
+}
+
+.ip-logo,
+.ip-loader {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	opacity: 0;
+	cursor: default;
+	pointer-events: none;
+}
+
+.ip-logo {
+	top: 0;
+	height: 100%;
+	-webkit-transform: translate3d(0,25%,0);
+	transform: translate3d(0,25%,0);
+}
+
+.ip-loader {
+	bottom: 20%;
+}
+
+.ip-header .ip-inner {
+	display: block;
+	margin: 0 auto;
+}
+
+.ip-header .ip-logo svg {
+	min-width: 320px;
+	max-width: 480px;
+	width: 25%;
+}
+
+.ip-header .ip-logo svg path {
+	fill: #ef6e7e;
+}
+
+.ip-header .ip-loader svg path {
+	fill: none;
+	stroke-width: 6;
+}
+
+.ip-header .ip-loader svg path.ip-loader-circlebg {
+	stroke: #ddd;
+}
+
+.ip-header .ip-loader svg path.ip-loader-circle {
+	-webkit-transition: stroke-dashoffset 0.2s;
+	transition: stroke-dashoffset 0.2s;
+	stroke: #ef6e7e;
+}
+
+/* Content */
+.ip-main {
+	overflow: hidden;
+	margin: 0 auto;
+	padding-top: 10em;
+	max-width: 1100px;
+	width: 100%;
+}
+
+.ip-main h2 {
+	margin: 0;
+	padding: 3em 0 2em 0;
+	color: #fff;
+	text-align: center;
+	font-size: 4.25em;
+	font-size: 4vw;
+	line-height: 1;
+}
+
+
+.box {
+	float: left;
+	padding: 3.5em;
+	width: 16.6%;
+	font-size: 0.5em;
+	line-height: 1.5;
+}
+
+.box p {
+	font-family: 'dapurqueen'!important;
+}
+
+/* Animations */
+
+/* Initial animation of header elements */
+.loading .ip-logo,
+.loading .ip-loader {
+	opacity: 1;
+	-webkit-animation: animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both;
+	animation: animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both;
+}
+
+.loading .ip-loader {
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
+}
+
+@-webkit-keyframes animInitialHeader {
+	from { opacity: 0; -webkit-transform: translate3d(0,800px,0); }
+}
+
+@keyframes animInitialHeader {
+	from { opacity: 0; -webkit-transform: translate3d(0,800px,0); transform: translate3d(0,800px,0); }
+}
+
+/* Header elements when loading finishes */
+.loaded .ip-logo,
+.loaded .ip-loader {
+	opacity: 1;
+}
+
+.loaded .ip-logo {
+	-webkit-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+	-webkit-animation: animLoadedLogo 1s cubic-bezier(0.7,0,0.3,1) forwards;
+	animation: animLoadedLogo 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@-webkit-keyframes animLoadedLogo {
+	to { -webkit-transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1); }
+}
+
+@keyframes animLoadedLogo {
+	to { -webkit-transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1); transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1); }
+}
+
+.loaded .ip-loader {
+	-webkit-animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+	animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@-webkit-keyframes animLoadedLoader {
+	to { opacity: 0; -webkit-transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1); }
+}
+
+@keyframes animLoadedLoader {
+	to { opacity: 0; -webkit-transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1); transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1); }
+}
+
+/* Change the color of the logo */
+.loaded .ip-logo svg path {
+	-webkit-transition: all 0.5s ease 0.3s;
+	transition: all 0.5s ease 0.3s;
+	fill: #fff;
+	fill-opacity: 0.2;
+}
+
+/* Header animation when loading finishes */
+.loaded .ip-header {
+	-webkit-animation: animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards;
+	animation: animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@-webkit-keyframes animLoadedHeader {
+	to { -webkit-transform: translate3d(0,-100%,0); }
+}
+
+@keyframes animLoadedHeader {
+	to { -webkit-transform: translate3d(0,-100%,0); transform: translate3d(0,-100%,0); }
+}
+
+/* Content animations */
+.loaded .ip-main h2,
+.loaded .ip-main .browser,
+.loaded .ip-main .browser .box,
+.loaded .codrops-demos {
+	-webkit-animation: animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both;
+	animation: animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both;
+}
+
+.loaded .ip-main .browser,
+.loaded .ip-main .browser .box:first-child {
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
+}
+
+.loaded .ip-main .browser .box:nth-child(2) {
+	-webkit-animation-delay: 0.15s;
+	animation-delay: 0.15s;
+}
+
+.loaded .ip-main .browser .box:nth-child(3) {
+	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
+}
+
+@-webkit-keyframes animLoadedContent {
+	from { opacity: 0; -webkit-transform: translate3d(0,200px,0); }
+}
+
+@keyframes animLoadedContent {
+	from { opacity: 0; -webkit-transform: translate3d(0,200px,0); transform: translate3d(0,200px,0); }
+}
+
+
+
+.hi-icon-wrap {
+	text-align: center;
+	margin: 0 auto;
+	padding: 2em 0 3em;
+}
+
+.hi-icon {
+	display: inline-block;
+	font-size: 0px;
+	cursor: pointer;
+	margin: 15px 30px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	color: #fff;
+	opacity: .2;
+}
+
+.hi-icon:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	content: '';
+	-webkit-box-sizing: content-box; 
+	-moz-box-sizing: content-box; 
+	box-sizing: content-box;
+}
+
+.hi-icon:before {
+	font-family: 'dapurqueen'!important;
+	speak: none;
+	font-size: 32px;
+	line-height: 60px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+.hi-icon-gp:before {
+  content: "\e900";
+}
+.hi-icon-dq:before {
+  content: "\e901";
+}
+.hi-icon-fb:before {
+  content: "\e902";
+}
+.hi-icon-line:before {
+  content: "\e903";
+}
+.hi-icon-wa:before {
+  content: "\e904";
+}
+.hi-icon-tw:before {
+  content: "\e905";
+}
+.hi-icon-ig:before {
+  content: "\e906";
+}
+
+a.hi-icon-ig:hover {
+	color:red;
+} 
+
+/* Icon Effect */
+.hi-icon-effect .hi-icon {
+	/*background: rgba(255,255,255,0.1);*/
+	-webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
+	-moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
+	transition: transform ease-out 0.1s, background 0.2s;
+}
+
+.hi-icon-effect .hi-icon:after {
+	top: 0;
+	left: 0;
+	padding: 0;
+	z-index: -1;
+	box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+	opacity: 0;
+}
+
+.hi-icon-effect .hi-icon:hover {
+	background: rgba(255,255,255,0.05);
+	color: #fff;
+	opacity: 1;
+}
+
+.hi-icon-effect .hi-icon:hover:after {
+	-webkit-animation: sonarEffect 1.3s ease-out 75ms;
+	-moz-animation: sonarEffect 1.3s ease-out 75ms;
+	animation: sonarEffect 1.3s ease-out 75ms;
+}
+
+@-webkit-keyframes sonarEffect {
+	0% {
+		opacity: 0.3;
+	}
+	40% {
+		opacity: 0.5;
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 6px rgba(255,255,255,0.5);
+	}
+	100% {
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 6px rgba(255,255,255,0.5);
+		-webkit-transform: scale(1.2);
+		opacity: 0;
+	}
+}
+@-moz-keyframes sonarEffect {
+	0% {
+		opacity: 0.3;
+	}
+	40% {
+		opacity: 0.5;
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 6px rgba(255,255,255,0.5);
+	}
+	100% {
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 6px rgba(255,255,255,0.5);
+		-moz-transform: scale(1.2);
+		opacity: 0;
+	}
+}
+@keyframes sonarEffect {
+	0% {
+		opacity: 0.3;
+	}
+	40% {
+		opacity: 0.5;
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 6px rgba(255,255,255,0.5);
+	}
+	100% {
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #fff, 0 0 0 6px rgba(255,255,255,0.5);
+		transform: scale(1.2);
+		opacity: 0;
+	}
+}
+
+.contact {
+    bottom: 0;
+    display: block;
+    text-align: center;
+    padding: 0 0 2em;
+    position: absolute;
+    width: 100%;
+    font-size: .75em;
+    font-family: Arial, sans-serif;    
+}
+
+.contact p {opacity: .2;}
+
+img.emoji {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+    border: medium none !important;
+    box-shadow: none !important;
+    display: inline !important;
+    height: 1em !important;
+    margin: 0 0.07em !important;
+    padding: 0 !important;
+    vertical-align: -0.1em !important;
+    width: 1em !important;
+}
+
+/* Change layout class for header */
+.layout-switch .ip-header {
+	position: absolute;
+}
+
+/* No JS */
+.no-js .ip-header {
+	position: relative;
+	min-height: 0px;
+}
+
+.no-js .ip-header .ip-logo {
+	margin-top: 20px;
+	height: 180px;
+	opacity: 1;
+	-webkit-transform: none;
+	transform: none;
+}
+
+.no-js .ip-header .ip-logo svg path {
+	fill: #fff;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 45em) {
+
+	.ip-main h2 {
+		font-size: 2.25em;
+		font-size: 10vw;
+		padding: 2em 0 .5em 0;
+	}
+
+	.hi-icon::before {
+		font-size: 5vw;
+		line-height: 30px;
+	}
+
+	.box {
+		width: 100%;
+	}
+
+}
+
+@media screen and (max-width: 600px) {
+	.hi-icon {
+		margin: 15px;
+		height:30px;
+		width: 30px;
+	}
+}
